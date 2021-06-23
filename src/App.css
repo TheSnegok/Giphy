@@ -1,38 +1,53 @@
+@font-face {
+	font-family: 'Source-Code-Pro';
+	src: local('Source-Code-Pro'), url(./fonts/Source-Code-Pro/SourceCodePro-Regular.ttf) format('tff');
+  }
+
 .App {
-  text-align: center;
+	position: relative;
+	background: url("./img/bg.svg") no-repeat fixed;
+	background-size: cover;
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	overflow-x: hidden;
+	padding-bottom: 3vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+	width: 80vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-header_input {
+	position: relative;
+	display: flex;
+	justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Arrow-Up {
+	position: fixed;
+	text-align: center;
+	right: 1vw;
+	bottom: 30px;
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	background: rgb(78, 74, 74);
+	cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Arrow-Up:hover {
+	position: fixed;
+	text-align: center;
+	right: 1vw;
+	bottom: 30px;
+	cursor: pointer;
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	background: rgb(78, 74, 74);
+	border: 1px rgb(214, 243, 85) solid;
+	transition: 1s;
 }

@@ -1,0 +1,30 @@
+.App_header {
+	margin-bottom: 3vw;
+	color: white;
+	text-align: center;
+}
+
+.giphyText {
+	position: relative;
+}
+
+.giphyText h1 {
+	position: relative;
+    color: rgba(79,158,109,1);
+	font-family: 'Source-Code-Pro';
+	font-size: 10vw;
+	overflow: hidden;
+}
+
+.toggle_language {
+	position: absolute;
+	top: 1vw;
+	right: 20vw;
+}
+
+.toggle_language select {
+	border-radius: 10px;
+	background: rgb(87, 132, 190);
+	border: none
+}
+
