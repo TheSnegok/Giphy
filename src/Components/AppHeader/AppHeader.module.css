@@ -11,7 +11,7 @@
 .giphyText h1 {
 	position: relative;
     color: rgba(79,158,109,1);
-	font-family: Source-Code-Pro;
+	font-family: Source-Code-Pro, sans-serif;
 	font-size: 10vw;
 	overflow: hidden;
 }
