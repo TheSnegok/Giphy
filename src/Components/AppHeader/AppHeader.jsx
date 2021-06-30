@@ -9,21 +9,23 @@ const AppHeader = (props) => {
 	let setLanguage = props.setLanguage,
 		setPlaceholder = props.setPlaceholder;
 
-
 	let toggleLanguage = (e) => {
-		if(e.target.value === "en") {
+		if (e.target.value === "en") {
 			setLanguage("en");
 			setPlaceholder("Enter your text...");
 		} else {
 			setLanguage("ru");
 			setPlaceholder("Введите свой текст...");
-		}};
+		}
+	};
 
 	return (
 		<header className={s.App_header}>
 			<div className={s.App_headerText}>
 				<div className={s.giphyText}>
-					<h1>Giphy</h1>
+					<header className={s.header}>
+						<h1>Giphy</h1>
+					</header>
 					<div className={s.toggle_language}>
 						<select onChange={(e) => toggleLanguage(e)}>
 							<option value="en">EN</option>

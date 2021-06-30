@@ -21,7 +21,7 @@ let gifReducer = (state = initialState, action) => {
 		case SAVE_NEW_GIF:
 			return {
 				...state,
-				items: [...state.items.concat(action.newGif)]
+				items: [...state.items, ...action.newGif]
 			};
 		case SET_LANG:
 			return {

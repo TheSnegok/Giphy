@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./ArrowUp.module.css";
 
 const ArrowUp = () => {
-	const [display, setDisplay] = useState("none");
+	const [show, setShow] = useState("Arrow-Up_unshow");
 
 	useEffect(() => {
 		document.addEventListener('scroll', showArrowUp);
@@ -11,19 +10,14 @@ const ArrowUp = () => {
 		} 
 	}, []);
 
-	const showArrowUp = (e) => {
-		window.pageYOffset === 0 ? setDisplay("none") : setDisplay("block");
-	} 
-
-	let toTop = () => {
-		window.scrollTo(0, 0);
-	};
+	const showArrowUp = () => {
+		window.pageYOffset === 0 ? setShow("Arrow-Up_unshow") : setShow("Arrow-Up_show");
+	}
 
 	return (
 		<div
-			className="Arrow-Up"
-			onClick={() => toTop()}
-			style={{ display: display }}
+			className={show}
+			onClick={() => window.scrollTo(0, 0)}
 		>
 			<svg width="70px" height="70px" xmlns="http://www.w3.org/2000/svg">
 				<path

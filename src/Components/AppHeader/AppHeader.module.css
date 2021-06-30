@@ -6,25 +6,27 @@
 
 .giphyText {
 	position: relative;
+	display: grid;
+	grid-template-columns: 11fr 1fr;
+	justify-content: space-around;
 }
 
-.giphyText h1 {
+.header {
+	display: block;
+}
+
+.header h1 {
 	position: relative;
-    color: rgba(79,158,109,1);
-	font-family: Source-Code-Pro, sans-serif;
-	font-size: 10vw;
-	overflow: hidden;
-}
-
-.toggle_language {
-	position: absolute;
-	top: 1vw;
-	right: 20vw;
+	color: rgb(79, 129, 158);
+	font: 600 10vw Source-Code-Pro;
+	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(0, 132, 255),
+		0 0 12px rgb(0, 132, 255), 0 0 12px rgb(0, 132, 255), 0 0 12px rgb(0, 132, 255), 0 0 1px rgb(0, 132, 255);
 }
 
 .toggle_language select {
 	border-radius: 10px;
 	background: rgb(87, 132, 190);
-	border: none
+	border: none;
+	padding: 3px;
 }
 

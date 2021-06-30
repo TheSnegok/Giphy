@@ -6,6 +6,7 @@ import AppHeader from "./Components/AppHeader/AppHeader";
 import Content from "./Components/Content/Content";
 
 const App = () => {
+
 	return (
 		<Provider store={store}>
 			<main className="App">
