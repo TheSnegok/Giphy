@@ -6,9 +6,6 @@
 
 .giphyText {
 	position: relative;
-	display: grid;
-	grid-template-columns: 11fr 1fr;
-	justify-content: space-around;
 }
 
 .header {
@@ -16,7 +13,6 @@
 }
 
 .header h1 {
-	position: relative;
 	color: rgb(79, 129, 158);
 	font: 600 10vw Source-Code-Pro;
 	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(0, 132, 255),
@@ -24,6 +20,9 @@
 }
 
 .toggle_language select {
+	position: absolute;
+	top: 0;
+	right: calc(0% - 0vw);
 	border-radius: 10px;
 	background: rgb(87, 132, 190);
 	border: none;
