@@ -19,6 +19,7 @@ const Image = (props) => {
 			<img
 				src={gif.images.fixed_height.webp}
 				alt={gif.slug}
+				key={gif.id}
 				className={!loader ? s.gifNone : s.gif}
 				onClick={() => clickCopy(gif.images.original.url)}
 				onLoad={() => loadImage()}

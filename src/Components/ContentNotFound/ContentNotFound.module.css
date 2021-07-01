@@ -1,6 +1,16 @@
-.content {
+.contentNotFound {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.contentNotFound h1 {
+    color: rgb(254, 213, 170);
+	font: 600 2vw Source-Code-Pro;
+}
+
+.contentNotFound img {
+    width: 200px;
+    height: 20vw;
 }
 

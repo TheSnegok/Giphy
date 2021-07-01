@@ -5,13 +5,7 @@ import { setText } from "../../redux/reducers/searchReducer";
 import { connect } from "react-redux";
 import { giveGif } from "../../redux/reducers/gifReducer";
 
-const Searcher = (props) => {
-	let setText = props.setText,
-		textState = props.text,
-		giveGif = props.giveGif,
-		placeholder = props.placeholder,
-		language = props.language;
-
+const Searcher = ({setText, text, giveGif, placeholder, language}) => {
 	return (
 		<div className={s.searcher}>
 			<input
@@ -19,16 +13,16 @@ const Searcher = (props) => {
 				name="search"
 				className={s.searchInput_text}
 				placeholder={placeholder}
-				value={textState}
+				value={text}
 				onChange={(e) => setText(e.target.value)}
-				onKeyDown={(e) => (e.code === "Enter" ? giveGif(textState, language) : null)}
+				onKeyDown={(e) => text === '' ? null : ((e.code === "Enter" ? giveGif(text, language) : null))}
 			/>
 			<div className={s.searchBg}>
 				<input
 					type="submit"
 					value=""
 					className={s.searchInput_submit}
-					onClick={() => giveGif(textState, language)}
+					onClick={() => text === '' ? null : giveGif(text, language)}
 				/>
 				<img src={loop} alt="loop" className={s.search} />
 			</div>
