@@ -3,12 +3,14 @@ import { gipherAPI } from "../../api/api";
 const SAVE_GIF = "SAVE_GIF",
 	SET_LANG = "SET_LANG",
 	SET_OFFSET = "SET_OFFSET",
-	SAVE_NEW_GIF = "SAVE_NEW_GIF";
+	SAVE_NEW_GIF = "SAVE_NEW_GIF",
+	SET_FOUND = "SET_FOUND";
 
 const initialState = {
 	items: [],
 	language: "en",
 	offset: 0,
+	found: true
 };
 
 let gifReducer = (state = initialState, action) => {
@@ -33,6 +35,11 @@ let gifReducer = (state = initialState, action) => {
 				...state,
 				offset: action.offset,
 			};
+		case SET_FOUND:
+			return {
+				...state,
+				found: action.found,
+			};
 		default:
 			return state;
 	}
@@ -42,14 +49,18 @@ export const saveGif = (gif) => ({ type: SAVE_GIF, gif });
 export const saveNewGif = (newGif) => ({ type: SAVE_NEW_GIF, newGif });
 export const setLanguage = (lang) => ({ type: SET_LANG, lang });
 export const setOffset = (offset) => ({ type: SET_OFFSET, offset });
+export const setFound = (found) => ({ type: SET_FOUND, found })
 
 export const giveGif =
 	(text, lang, offset = 1) =>
 	async (dispatch) => {
 		let response = await gipherAPI.getGif(text, lang, offset);
 		if (response.meta.status === 200 && response.data.length > 0) {
+			dispatch(setFound(true));
 			dispatch(saveGif(response.data));
 			dispatch(setOffset(offset + 15));
+		} else {
+			dispatch(setFound(false));
 		}
 	};
 

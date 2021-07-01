@@ -1,34 +1,30 @@
-import s from "./Content.module.css";
 import { connect } from "react-redux";
 import { giveMoreGif } from "../../redux/reducers/gifReducer";
-import Showgif from "../Showgif/Showgif";
+import ContentFound from "../ContentFound/ContentFound";
+import ContentNotFound from "../ContentNotFound/ContentNotFound";
 
-const Content = (props) => {
-	let giveMoreGif = props.giveMoreGif,
-		text = props.text,
-		lang = props.lang,
-		offset = props.offset;
-
+const Content = ({ giveMoreGif, gifs, text, lang, offset, found }) => {
 	return (
-		<div className={s.content}>
-			<div className={s.contentWrapper}>
-				<Showgif gifs={props.gifs} {...props} />
-			</div>
-			{props.gifs.length === 0 ? null : (
-				<div
-					onClick={() => giveMoreGif(text, lang, offset)}
-					className={s.showMore}
-				>
-					Show more
-				</div>
+		<>
+			{found ? (
+				<ContentFound
+					giveMoreGif={giveMoreGif}
+					gifs={gifs}
+					text={text}
+					lang={lang}
+					offset={offset}
+				/>
+			) : (
+				<ContentNotFound />
 			)}
-		</div>
+		</>
 	);
 };
 
 let mapStateToProps = (state) => ({
 	gifs: state.gifs.items,
 	offset: state.gifs.offset,
+	found: state.gifs.found,
 	text: state.search.text,
 	lang: state.search.lang,
 });
