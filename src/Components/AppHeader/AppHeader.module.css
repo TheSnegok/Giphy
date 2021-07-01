@@ -22,7 +22,7 @@
 .toggle_language select {
 	position: absolute;
 	top: 0;
-	right: calc(0% - 0vw);
+	right: 0;
 	border-radius: 10px;
 	background: rgb(87, 132, 190);
 	border: none;

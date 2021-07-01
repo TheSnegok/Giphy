@@ -12,18 +12,24 @@ const Image = (props) => {
 
 	const loadImage = () => {
 		setLoader(true);
-	}
+	};
 
 	return (
 		<div className={s.wrapper} key={gif.id}>
-			<img
-				src={gif.images.fixed_height.webp}
-				alt={gif.slug}
-				key={gif.id}
-				className={!loader ? s.gifNone : s.gif}
-				onClick={() => clickCopy(gif.images.original.url)}
-				onLoad={() => loadImage()}
-			/>
+			<div
+				className={s.image}
+				data-title="Нажмите чтобы скопировать ссылку на изображение"
+			>
+				<img
+					src={gif.images.fixed_height.webp}
+					alt={gif.slug}
+					key={gif.id}
+					className={!loader ? s.gifNone : s.gif}
+					onClick={() => clickCopy(gif.images.original.url)}
+					onLoad={() => loadImage()}
+				/>
+			</div>
+
 			{!loader && <div className={s.loader}></div>}
 		</div>
 	);

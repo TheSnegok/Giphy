@@ -19,6 +19,23 @@
     cursor: pointer;
 }
 
+.image {
+    position: relative;
+    display: inline-block;
+}
+
+.image:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 0; 
+    bottom: 0; 
+    z-index: 1; 
+    background: rgba(55, 198, 255, 0.6); 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    font-size: 11px; 
+    padding: 5px 10px; 
+}
+
 .gifNone {
     display: none;
     max-width: 100%;
