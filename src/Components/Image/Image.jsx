@@ -27,6 +27,7 @@ const Image = (props) => {
 					className={!loader ? s.gifNone : s.gif}
 					onClick={() => clickCopy(gif.images.original.url)}
 					onLoad={() => loadImage()}
+					crossOrigin="anonymous"
 				/>
 			</div>
 
