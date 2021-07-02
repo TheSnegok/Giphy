@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ArrowUp = () => {
+const ArrowUp = React.memo(() => {
 	const [show, setShow] = useState("Arrow-Up_unshow");
 
 	useEffect(() => {
@@ -44,6 +44,6 @@ const ArrowUp = () => {
 			</svg>
 		</div>
 	);
-};
+});
 
 export default ArrowUp;
