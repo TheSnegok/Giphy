@@ -17,10 +17,10 @@ const useOnScreen = (ref, rootMargin = "0px") => {
 		if (ref.current) {
 			observer.observe(ref.current);
 		}
-		return () => {
+		return () => { // eslint-disable-next-line
 			observer.unobserve(ref.current);
-		};
-	}, []); // Empty array ensures that effect is only run on mount and unmount
+		}; // eslint-disable-next-line
+	}, []); // Empty array ensures that effect is only run on mount and unmount 
 	return isIntersecting;
 };
 

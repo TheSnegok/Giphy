@@ -4,28 +4,3 @@
 	text-align: center;
 }
 
-.giphyText {
-	position: relative;
-}
-
-.header {
-	display: block;
-}
-
-.header h1 {
-	color: rgb(79, 129, 158);
-	font: 600 10vw Source-Code-Pro;
-	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(0, 132, 255),
-		0 0 12px rgb(0, 132, 255), 0 0 12px rgb(0, 132, 255), 0 0 12px rgb(0, 132, 255), 0 0 1px rgb(0, 132, 255);
-}
-
-.toggle_language select {
-	position: absolute;
-	top: 0;
-	right: 0;
-	border-radius: 10px;
-	background: rgb(87, 132, 190);
-	border: none;
-	padding: 3px;
-}
-
