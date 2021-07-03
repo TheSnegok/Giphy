@@ -36,6 +36,14 @@
     padding: 5px 10px; 
 }
 
+.showPicture {
+    display: inline-block;
+}
+
+.nonePicture {
+    display: none;
+}
+
 .gifNone {
     display: none;
     max-width: 100%;
