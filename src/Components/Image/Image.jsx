@@ -23,7 +23,7 @@ const Image = (props) => {
 				<picture >
 					<source type="image/webp" />
 					<img
-						src={gif.images.original.webp}
+						src={gif.images.preview_webp.url}
 						alt={gif.slug}
 						key={gif.id}
 						className={!loader ? s.gifNone : s.gif}

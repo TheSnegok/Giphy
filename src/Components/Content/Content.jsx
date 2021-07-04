@@ -28,7 +28,7 @@ let mapStateToProps = (state) => ({
 	found: state.gifs.found,
 	totalCount: state.gifs.totalCount,
 	text: state.search.text,
-	lang: state.search.lang,
+	lang: state.gifs.language,
 });
 
 export default connect(mapStateToProps, { giveMoreGif })(Content);
