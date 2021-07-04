@@ -5,7 +5,15 @@ import { setText } from "../../redux/reducers/searchReducer";
 import { connect } from "react-redux";
 import { giveGif } from "../../redux/reducers/gifReducer";
 
-const Searcher = ({setText, text, giveGif, placeholder, language}) => {
+const Searcher = ({ setText, text, giveGif, placeholder }) => {
+	const formValidate = () => {
+		if (text === "") {
+			return null;
+		} else {
+			giveGif(text);
+		}
+	};
+
 	return (
 		<div className={s.searcher}>
 			<input
@@ -15,14 +23,14 @@ const Searcher = ({setText, text, giveGif, placeholder, language}) => {
 				placeholder={placeholder}
 				value={text}
 				onChange={(e) => setText(e.target.value)}
-				onKeyDown={(e) => text === '' ? null : ((e.code === "Enter" ? giveGif(text, language) : null))}
+				onKeyDown={(e) => (e.code === "Enter" ? formValidate() : null)}
 			/>
 			<div className={s.searchBg}>
 				<input
 					type="submit"
 					value=""
 					className={s.searchInput_submit}
-					onClick={() => text === '' ? null : giveGif(text, language)}
+					onClick={() => formValidate()}
 				/>
 				<img src={loop} alt="loop" className={s.search} />
 			</div>

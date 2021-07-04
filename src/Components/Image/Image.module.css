@@ -21,7 +21,6 @@
 
 .image {
     position: relative;
-    display: inline-block;
 }
 
 .image:hover::after {

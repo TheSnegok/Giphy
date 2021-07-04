@@ -1,10 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import s from "./Image.module.css";
-import useOnScreen from "../../hook/useOnScreen";
 
-const Image = React.memo((props) => {
+const Image = (props) => {
 	let gif = props.gif;
-	const containerRef = useRef();
 
 	const [loader, setLoader] = useState(false);
 
@@ -16,16 +14,13 @@ const Image = React.memo((props) => {
 		setLoader(true);
 	};
 
-	const visible = useOnScreen(containerRef);
-
 	return (
 		<div className={s.wrapper} key={gif.id}>
 			<div
 				className={s.image}
 				data-title="Нажмите чтобы скопировать ссылку на изображение"
-				ref={containerRef}
 			>
-				<picture className={visible ? s.showPicture : s.nonePicture} >
+				<picture >
 					<source type="image/webp" />
 					<img
 						src={gif.images.original.webp}
@@ -44,6 +39,6 @@ const Image = React.memo((props) => {
 			{!loader && <div className={s.loader}></div>}
 		</div>
 	);
-});
+};
 
 export default Image;

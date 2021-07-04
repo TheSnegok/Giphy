@@ -12,7 +12,7 @@ const initialState = {
 	language: "en",
 	offset: 0,
 	found: true,
-	totalCount: 0,
+	totalCount: undefined,
 };
 
 let gifReducer = (state = initialState, action) => {
@@ -60,9 +60,9 @@ export const setFound = (found) => ({ type: SET_FOUND, found });
 export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount });
 
 export const giveGif =
-	(text, lang, offset = 1) =>
+	(text, offset = 1) =>
 	async (dispatch) => {
-		let response = await gipherAPI.getGif(text, lang, offset);
+		let response = await gipherAPI.getGif(text, offset);
 		if (response.meta.status === 200 && response.data.length > 0) {
 			dispatch(setFound(true));
 			dispatch(saveGif(response.data));
@@ -73,8 +73,8 @@ export const giveGif =
 		}
 	};
 
-export const giveMoreGif = (text, lang, offset) => async (dispatch) => {
-	let response = await gipherAPI.getGif(text, lang, offset);
+export const giveMoreGif = (text, offset) => async (dispatch) => {
+	let response = await gipherAPI.getGif(text, offset);
 	if (response.meta.status === 200) {
 		dispatch(saveNewGif(response.data));
 		dispatch(setOffset(offset + 15));

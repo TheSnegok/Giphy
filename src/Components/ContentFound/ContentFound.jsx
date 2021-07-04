@@ -9,14 +9,24 @@ const ContentFound = ({
 	offset,
 	totalCount,
 }) => {
+	console.log(
+		totalCount,
+		"общее количество",
+		gifs.length,
+		"количество выведенных гиф"
+	);
 	return (
 		<div className={s.content}>
 			<div className={s.contentWrapper}>
 				<Showgif gifs={gifs} />
 			</div>
-			{totalCount <= 15 || totalCount === gifs.length ? null : (
+			{totalCount === undefined ||
+			totalCount <= 15 ||
+			(gifs.length !== 0
+				? totalCount - 1 === gifs.length
+				: true) ? null : (
 				<div
-					onClick={() => giveMoreGif(text, lang, offset)}
+					onClick={() => giveMoreGif(text, offset)}
 					className={s.showMore}
 				>
 					Show more
