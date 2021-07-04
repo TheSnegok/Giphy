@@ -24,7 +24,7 @@ const Image = ({ gif }) => {
 				<picture className={visible ? s.showPicture : s.nonePicture}>
 					<source type="image/webp" />
 					<img
-						src={gif.images.preview_webp.url}
+						src={gif.images.preview_webp.url === undefined ? gif.images.downsized_large.url : gif.images.preview_webp.url}
 						alt={gif.slug}
 						key={gif.id}
 						className={!loader ? s.gifNone : s.gif}
