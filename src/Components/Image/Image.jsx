@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import s from "./Image.module.css";
+import useOnScreen from "../../hook/useOnScreen";
 
-const Image = (props) => {
-	let gif = props.gif;
-
+const Image = ({ gif }) => {
 	const [loader, setLoader] = useState(false);
 
 	let clickCopy = (elem) => {
@@ -14,13 +13,15 @@ const Image = (props) => {
 		setLoader(true);
 	};
 
+	const [setRef, visible] = useOnScreen({ rootMargin: "0px"});
+
 	return (
-		<div className={s.wrapper} key={gif.id}>
+		<div className={s.wrapper} key={gif.id} ref={setRef}>
 			<div
 				className={s.image}
 				data-title="Нажмите чтобы скопировать ссылку на изображение"
 			>
-				<picture >
+				<picture className={visible ? s.showPicture : s.nonePicture}>
 					<source type="image/webp" />
 					<img
 						src={gif.images.preview_webp.url}
