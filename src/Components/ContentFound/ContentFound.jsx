@@ -12,7 +12,7 @@ const ContentFound = ({
 	return (
 		<div className={s.content}>
 			<div className={s.contentWrapper}>
-				<Showgif gifs={gifs} />
+				<Showgif gifs={gifs} lang={lang}/>
 			</div>
 			{totalCount === undefined ||
 			totalCount <= 15 ||

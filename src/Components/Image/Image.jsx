@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./Image.module.css";
 import useOnScreen from "../../hook/useOnScreen";
 
-const Image = ({ gif }) => {
+const Image = ({ gif, lang }) => {
 	const [loader, setLoader] = useState(false);
 
 	let clickCopy = (elem) => {
@@ -19,7 +19,7 @@ const Image = ({ gif }) => {
 		<div className={s.wrapper} key={gif.id} ref={setRef}>
 			<div
 				className={s.image}
-				data-title="Нажмите чтобы скопировать ссылку на изображение"
+				data-title={lang === 'en' ? 'Click to copy the link to the gif' : 'Нажмите чтобы скопировать ссылку на гиф'}
 			>
 				<picture className={visible ? s.showPicture : s.nonePicture}>
 					<source type="image/webp" />
