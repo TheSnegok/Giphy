@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import s from "./Image.module.css";
-import useOnScreen from "../../hook/useOnScreen";
+import useOnScreen from "../../hook/useOnScreen.tsx";
 
 const Image = ({ gif, lang }) => {
 	const [loader, setLoader] = useState(false);
@@ -14,7 +14,7 @@ const Image = ({ gif, lang }) => {
 	};
 
 	const [setRef, visible] = useOnScreen({ rootMargin: "0px"});
-
+	
 	return (
 		<div className={s.wrapper} key={gif.id} ref={setRef}>
 			<div
