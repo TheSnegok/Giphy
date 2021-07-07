@@ -20,7 +20,7 @@ const useOnScreen = (option: object) => {
 			}
 		}; // eslint-disable-next-line
 	}, [ref, option]); // Empty array ensures that effect is only run on mount and unmount 
-	return [setRef, isIntersecting];
+	return [setRef, isIntersecting] as const;
 };
 
 export default useOnScreen;

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import s from "./Image.module.css";
 import useOnScreen from "../../hook/useOnScreen";
 
