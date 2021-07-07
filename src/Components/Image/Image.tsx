@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import s from "./Image.module.css";
-import useOnScreen from "../../hook/useOnScreen.tsx";
+import useOnScreen from "../../hook/useOnScreen";
 
-const Image = ({ gif, lang }) => {
-	const [loader, setLoader] = useState(false);
+interface PropImage {
+	gif: any,
+	lang: string,
+	key: number,
+};
 
-	let clickCopy = (elem) => {
+const Image = ({ gif, lang, key }: PropImage) => {
+	const [loader, setLoader] = useState<boolean>(false);
+
+	const clickCopy = (elem: any) => {
 		navigator.clipboard.writeText(elem);
 	};
 
@@ -14,9 +20,10 @@ const Image = ({ gif, lang }) => {
 	};
 
 	const [setRef, visible] = useOnScreen({ rootMargin: "0px"});
-	
+
+	if(!gif) return null;
 	return (
-		<div className={s.wrapper} key={gif.id} ref={setRef}>
+		<div className={s.wrapper} key={key} ref={setRef}>
 			<div
 				className={s.image}
 				data-title={lang === 'en' ? 'Click to copy the link to the gif' : 'Нажмите чтобы скопировать ссылку на гиф'}

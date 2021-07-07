@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-const Image = React.lazy(() => import("../Image/Image"));
+const Image = React.lazy(() => import("../Image/Image.tsx"));
 
 const Showgif = ({ gifs, lang }) => {
 	return gifs.map((gif, number) => (
