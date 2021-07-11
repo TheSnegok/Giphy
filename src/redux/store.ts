@@ -3,6 +3,12 @@ import thunkMiddleware from "redux-thunk";
 import gifReducer from "./reducers/gifReducer";
 import searchReducer from "./reducers/searchReducer";
 
+declare global {
+	interface Window {
+	  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+	}
+}
+
 let reducers = combineReducers({
 	gifs: gifReducer,
 	search: searchReducer,

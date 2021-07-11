@@ -1,17 +1,19 @@
-import React from "react";
 import s from "./Searcher.module.css";
 import loop from "../../img/loopSearch.svg";
 import { setText } from "../../redux/reducers/searchReducer";
 import { connect } from "react-redux";
 import { giveGif } from "../../redux/reducers/gifReducer";
 
-const Searcher = ({ setText, text, giveGif, placeholder }) => {
-	const formValidate = () => {
-		if (text === "") {
-			return null;
-		} else {
-			giveGif(text);
-		}
+interface PropSearcher {
+	setText: any, 
+	text: string,
+	giveGif: any,
+	placeholder: string
+}
+
+const Searcher = ({ setText, text, giveGif, placeholder }: PropSearcher) => {
+	const formValidate = (): void => {
+		text !== "" && giveGif(text);
 	};
 
 	return (
@@ -38,7 +40,7 @@ const Searcher = ({ setText, text, giveGif, placeholder }) => {
 	);
 };
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: any) => ({
 	text: state.search.text,
 	language: state.gifs.language,
 	placeholder: state.search.placeholder,

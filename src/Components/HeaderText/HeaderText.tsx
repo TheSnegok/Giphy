@@ -1,12 +1,18 @@
+import React from "react";
 import s from "./HeaderText.module.css";
 import { setLanguage } from "../../redux/reducers/gifReducer";
 import { setPlaceholder } from "../../redux/reducers/searchReducer";
 import { connect } from "react-redux";
 
-const HeaderText = ({ setLanguage, setPlaceholder }) => {
+interface PropHeaderText {
+    setLanguage: Function,
+    setPlaceholder: Function,
+}
 
-    let toggleLanguage = (e) => {
-		if (e.target.value === "en") {
+const HeaderText = ({ setLanguage, setPlaceholder }: PropHeaderText) => {
+
+    let toggleLanguage = (e: React.SyntheticEvent<EventTarget>) => {
+		if ((e.target as HTMLInputElement).value === "en") {
 			setLanguage("en");
 			setPlaceholder("Enter your text...");
 		} else {

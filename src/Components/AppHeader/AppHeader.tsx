@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./AppHeader.module.css";
 import Searcher from "../Searcher/Searcher";
 import HeaderText from "../HeaderText/HeaderText";

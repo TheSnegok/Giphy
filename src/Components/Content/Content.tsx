@@ -3,7 +3,17 @@ import { giveMoreGif } from "../../redux/reducers/gifReducer";
 import ContentFound from "../ContentFound/ContentFound";
 import ContentNotFound from "../ContentNotFound/ContentNotFound";
 
-const Content = ({ giveMoreGif, gifs, text, lang, offset, found, totalCount }) => {
+interface PropContent {
+	giveMoreGif: any,
+	gifs: object[],
+	text: string,
+	lang: string,
+	offset: number,
+	found: boolean,
+	totalCount: number
+}
+
+const Content = ({ giveMoreGif, gifs, text, lang, offset, found, totalCount }: PropContent) => {
 	return (
 		<>
 			{found ? (
@@ -22,7 +32,7 @@ const Content = ({ giveMoreGif, gifs, text, lang, offset, found, totalCount }) =
 	);
 };
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: any) => ({
 	gifs: state.gifs.items,
 	offset: state.gifs.offset,
 	found: state.gifs.found,

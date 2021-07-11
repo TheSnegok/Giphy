@@ -2,7 +2,11 @@ import s from "./ContentNotFound.module.css";
 import cryBunny from "../../img/cry_bunny.png";
 import { connect } from "react-redux";
 
-const ContentNotFound = ({lang}) => {
+interface PropContentNotFound {
+	lang: string
+}
+
+const ContentNotFound = ({lang}: PropContentNotFound) => {
 	return (
 		<div className={s.contentNotFound}>
 			<h1>{lang === 'en' ? 'Gif not found' : 'Гиф не найдены'}</h1>
@@ -11,7 +15,7 @@ const ContentNotFound = ({lang}) => {
 	);
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
 	lang: state.gifs.language
 })
 

@@ -1,5 +1,23 @@
 import { gipherAPI } from "../../api/api";
 
+interface Action {
+	type: string,
+	gif: string,
+	newGif: object[],
+	lang: string,
+	offset: string,
+	found: string,
+	totalCount: number
+}
+
+interface GifState {
+	items: object[],
+	language: string,
+	offset: number,
+	found: boolean,
+	totalCount: number | undefined,
+}
+
 const SAVE_GIF = "SAVE_GIF",
 	SET_LANG = "SET_LANG",
 	SET_OFFSET = "SET_OFFSET",
@@ -13,9 +31,9 @@ const initialState = {
 	offset: 0,
 	found: true,
 	totalCount: undefined,
-};
+} as GifState;
 
-let gifReducer = (state = initialState, action) => {
+let gifReducer = (state = initialState, action: Action) => {
 	switch (action.type) {
 		case SAVE_GIF:
 			return {
@@ -52,16 +70,16 @@ let gifReducer = (state = initialState, action) => {
 	}
 };
 
-export const saveGif = (gif) => ({ type: SAVE_GIF, gif });
-export const saveNewGif = (newGif) => ({ type: SAVE_NEW_GIF, newGif });
-export const setLanguage = (lang) => ({ type: SET_LANG, lang });
-export const setOffset = (offset) => ({ type: SET_OFFSET, offset });
-export const setFound = (found) => ({ type: SET_FOUND, found });
-export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount });
+export const saveGif = (gif: object[]) => ({ type: SAVE_GIF, gif });
+export const saveNewGif = (newGif: object[]) => ({ type: SAVE_NEW_GIF, newGif });
+export const setLanguage = (lang: string) => ({ type: SET_LANG, lang });
+export const setOffset = (offset: number) => ({ type: SET_OFFSET, offset });
+export const setFound = (found: boolean) => ({ type: SET_FOUND, found });
+export const setTotalCount = (totalCount: number) => ({ type: SET_TOTAL_COUNT, totalCount });
 
 export const giveGif =
-	(text, offset = 1) =>
-	async (dispatch) => {
+	(text: string, offset = 1) =>
+	async (dispatch: any) => {
 		let response = await gipherAPI.getGif(text, offset);
 		if (response.meta.status === 200 && response.data.length > 0) {
 			dispatch(setFound(true));
@@ -73,7 +91,7 @@ export const giveGif =
 		}
 	};
 
-export const giveMoreGif = (text, offset) => async (dispatch) => {
+export const giveMoreGif = (text: string, offset: number) => async (dispatch: any) => {
 	let response = await gipherAPI.getGif(text, offset);
 	if (response.meta.status === 200) {
 		dispatch(saveNewGif(response.data));
