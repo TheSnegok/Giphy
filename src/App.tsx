@@ -9,7 +9,7 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<main className="App">
-				<div className="container">
+				<div className="app-wrapper">
 					<AppHeader />
 					<Content />
 				</div>

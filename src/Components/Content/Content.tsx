@@ -9,13 +9,16 @@ interface PropContent {
 	text: string,
 	lang: string,
 	offset: number,
-	found: boolean,
+	found: undefined | boolean,
 	totalCount: number
 }
 
 const Content = ({ giveMoreGif, gifs, text, lang, offset, found, totalCount }: PropContent) => {
+	
 	return (
-		<>
+		found === undefined 
+		? null
+		: (<>
 			{found ? (
 				<ContentFound
 					giveMoreGif={giveMoreGif}
@@ -28,7 +31,7 @@ const Content = ({ giveMoreGif, gifs, text, lang, offset, found, totalCount }: P
 			) : (
 				<ContentNotFound />
 			)}
-		</>
+		</>)
 	);
 };
 

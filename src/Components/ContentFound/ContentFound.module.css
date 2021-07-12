@@ -1,7 +1,15 @@
+@keyframes expand {
+	from {
+		transform: scale(0);
+	  	opacity: 0;
+	}
+  }
+
 .content {
     display: flex;
     align-items: center;
     flex-direction: column;
+    animation: expand .5s ease-in-out;
 }
 
 .contentWrapper {

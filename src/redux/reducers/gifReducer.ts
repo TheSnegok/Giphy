@@ -14,7 +14,7 @@ interface GifState {
 	items: object[],
 	language: string,
 	offset: number,
-	found: boolean,
+	found: undefined | boolean,
 	totalCount: number | undefined,
 }
 
@@ -29,7 +29,7 @@ const initialState = {
 	items: [],
 	language: "en",
 	offset: 0,
-	found: true,
+	found: undefined,
 	totalCount: undefined,
 } as GifState;
 

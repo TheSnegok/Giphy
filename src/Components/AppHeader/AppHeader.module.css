@@ -2,5 +2,6 @@
 	margin-bottom: 3vw;
 	color: white;
 	text-align: center;
+	transition: transform .5s ease-in-out;
 }
 
