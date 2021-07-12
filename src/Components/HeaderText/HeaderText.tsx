@@ -11,7 +11,7 @@ interface PropHeaderText {
 
 const HeaderText = ({ setLanguage, setPlaceholder }: PropHeaderText) => {
 
-    let toggleLanguage = (e: React.SyntheticEvent<EventTarget>) => {
+    let toggleLanguage = (e: React.SyntheticEvent<EventTarget>): void => {
 		if ((e.target as HTMLInputElement).value === "en") {
 			setLanguage("en");
 			setPlaceholder("Enter your text...");

@@ -2,7 +2,7 @@ import s from "./ContentFound.module.css";
 import Showgif from "../Showgif/Showgif";
 
 interface PropContentFound {
-	giveMoreGif: any,
+	giveMoreGif: Function,
 	gifs: object[],
 	text: string,
 	lang: string,
