@@ -17,6 +17,10 @@
 	padding: 3vh 10vw;
 }
 
+.app-wrapper {
+	transition: all 1s ease-in-out;
+}
+
 .Arrow-Up_show {
 	position: fixed;
 	text-align: center;
