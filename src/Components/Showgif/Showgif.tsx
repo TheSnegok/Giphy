@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import "./Showgif.module.css";
 const Image = React.lazy(() => import("../Image/Image"));
 
 interface PropshowGif {
