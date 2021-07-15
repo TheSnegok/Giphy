@@ -74,7 +74,7 @@ export const saveGif = (gif: object[]) => ({ type: SAVE_GIF, gif });
 export const saveNewGif = (newGif: object[]) => ({ type: SAVE_NEW_GIF, newGif });
 export const setLanguage = (lang: string) => ({ type: SET_LANG, lang });
 export const setOffset = (offset: number) => ({ type: SET_OFFSET, offset });
-export const setFound = (found: boolean) => ({ type: SET_FOUND, found });
+export const setFound = (found: boolean | undefined) => ({ type: SET_FOUND, found });
 export const setTotalCount = (totalCount: number) => ({ type: SET_TOTAL_COUNT, totalCount });
 
 export const giveGif =
