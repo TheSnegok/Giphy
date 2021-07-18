@@ -1,27 +1,15 @@
 import React from "react";
 import s from "./HeaderText.module.css";
-import { setFound, setLanguage } from "../../redux/reducers/gifReducer";
-import { setPlaceholder } from "../../redux/reducers/searchReducer";
+import { setFound, toggleLanguage } from "../../redux/reducers/gifReducer";
 import { connect } from "react-redux";
 
 interface PropHeaderText {
-    setLanguage: Function,
-    setPlaceholder: Function,
+    toggleLanguage: Function,
     setFound: Function,
+    lang: string,
 }
 
-const HeaderText = ({ setLanguage, setPlaceholder, setFound }: PropHeaderText) => {
-
-    let toggleLanguage = (e: React.SyntheticEvent<EventTarget>): void => {
-        if ((e.target as HTMLInputElement).value === "en") {
-            setLanguage("en");
-            setPlaceholder("Enter your text...");
-        } else {
-            setLanguage("ru");
-            setPlaceholder("Введите свой текст...");
-        }
-    };
-
+const HeaderText = ({ toggleLanguage, setFound, lang }: PropHeaderText) => {
     return (
         <div className={s.App_headerText}>
             <div className={s.giphyText}>
@@ -46,15 +34,16 @@ const HeaderText = ({ setLanguage, setPlaceholder, setFound }: PropHeaderText) =
                         </g>
                     </svg>
                 </div>
-                <div className={s.toggle_language}>
-                    <select onChange={(e) => toggleLanguage(e)}>
-                        <option value="en">EN</option>
-                        <option value="ru">RU</option>
-                    </select>
+                <div className={s.toggle_language} onClick={() => toggleLanguage(lang)}>
+                    <span>{lang === 'en' ? 'ru' : 'en'}</span>
                 </div>
             </div>
         </div>
     )
 }
 
-export default connect(null, { setLanguage, setPlaceholder, setFound })(HeaderText);
+const mapStateToProps = (state: any) => ({
+    lang: state.gifs.language,
+});
+
+export default connect(mapStateToProps, { toggleLanguage, setFound })(HeaderText);

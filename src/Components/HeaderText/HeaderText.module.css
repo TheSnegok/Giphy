@@ -19,11 +19,10 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: -10px;
+	top: 0px;
 	left: 0;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+	width: 2.5vw;
+	height: 2.5vw;
 	border: 2px solid rgb(87, 132, 190);
 	background-color: rgb(156, 185, 223);
 	cursor: pointer;
@@ -34,44 +33,125 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: -10px;
+	top: 0px;
 	left: 0;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+	width: 2.5vw;
+	height: 2.5vw;
 	border: 2px solid rgb(87, 132, 190);
 	background-color: #fff;
 }
 
 .home svg {
-	width: 25px;
-	height: 25px;
+	width: 80%;
+	height: 80%;
 	fill: rgb(87, 132, 190);
 }
 
-.toggle_language select {
+.toggle_language {
 	position: absolute;
-	top: -10px;
+	top: 0px;
 	right: 0;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	font-size: 9px;
-    line-height: 9px;
+	width: 2.5vw;
+	height: 2.5vw;
 	background: rgb(156, 185, 223);
-	border: none;
-	padding: 3px;
+	border: 2px solid rgb(87, 132, 190);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.toggle_language select:hover {
+.toggle_language:hover {
 	position: absolute;
-	top: -10px;
+	top: 0px;
 	right: 0;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+	width: 2.5vw;
+	height: 2.5vw;
 	background: #fff;
-	border: none;
-	padding: 3px;
+	border: 2px solid rgb(87, 132, 190);
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.toggle_language span {
+	color: rgb(87, 132, 190);
+	font: 400 1vw Source-Code-Pro;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 577px) {
+	.header h1 {
+		color: rgb(79, 129, 158);
+		font: 600 30vw Source-Code-Pro;
+		text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(0, 132, 255),
+			0 0 12px rgb(0, 132, 255), 0 0 12px rgb(0, 132, 255), 0 0 12px rgb(0, 132, 255), 0 0 1px rgb(0, 132, 255);
+		cursor: default;
+	}
+	
+	.home {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0px;
+		left: 0;
+		width: 5vw;
+		height: 5vw;
+		border: 2px solid rgb(87, 132, 190);
+		background-color: rgb(156, 185, 223);
+		cursor: pointer;
+	}
+	
+	.home:hover {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0px;
+		left: 0;
+		width: 5vw;
+		height: 5vw;
+		border: 2px solid rgb(87, 132, 190);
+		background-color: #fff;
+	}
+	
+	.home svg {
+		width: 80%;
+		height: 80%;
+		fill: rgb(87, 132, 190);
+	}
+	
+	.toggle_language {
+		position: absolute;
+		top: 0px;
+		right: 0;
+		width: 5vw;
+		height: 5vw;
+		background: rgb(156, 185, 223);
+		border: 2px solid rgb(87, 132, 190);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.toggle_language:hover {
+		position: absolute;
+		top: 0px;
+		right: 0;
+		width: 5vw;
+		height: 5vw;
+		background: #fff;
+		border: 2px solid rgb(87, 132, 190);
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.toggle_language span {
+		color: rgb(87, 132, 190);
+		font: 400 2vw Source-Code-Pro;
+	}
 }
 

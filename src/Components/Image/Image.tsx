@@ -17,7 +17,11 @@ const Image = ({ gif, lang, keyImage }: PropImage) => {
 	};
 
 	const copyLink = (text: string): void => {
-		navigator.clipboard.writeText(text);
+		try {
+			navigator.clipboard.writeText(text);
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	if (!gif) return null;
@@ -42,7 +46,6 @@ const Image = ({ gif, lang, keyImage }: PropImage) => {
 					/>
 				</picture>
 			</div>
-
 			{!loader && <div className={s.loader}></div>}
 		</div>
 	);

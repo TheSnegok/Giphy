@@ -1,4 +1,5 @@
 import { gipherAPI } from "../../api/api";
+import { setPlaceholder } from "./searchReducer";
 
 interface Action {
 	type: string,
@@ -96,6 +97,17 @@ export const giveMoreGif = (text: string, offset: number) => async (dispatch: an
 	if (response.meta.status === 200) {
 		dispatch(saveNewGif(response.data));
 		dispatch(setOffset(offset + 15));
+	}
+};
+
+export const toggleLanguage = (lang: string) => (dispatch: any) => {
+	if (lang === "ru") {
+		dispatch(setLanguage("en"));
+		dispatch(setPlaceholder("Enter your text..."));
+		
+	} else {
+		dispatch(setLanguage("ru"));
+		dispatch(setPlaceholder("Введите свой текст..."));
 	}
 };
 

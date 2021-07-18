@@ -1,8 +1,8 @@
 .wrapper {
     border-radius: 1vw;
     padding: 1vw;
-    min-width: 390px;
-    min-height: 230px;
+    max-width: 30vw;
+    min-height: 200px;
     background: rgba(87, 132, 190, 0.5);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 5px );
@@ -77,4 +77,44 @@
 @-webkit-keyframes loading {
     0% {transform: rotate(0deg);}
     100% {transform: rotate(360deg);}
+}
+
+@media screen and (max-width: 1250px) {
+    .wrapper {
+        max-width: 60vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+	.wrapper {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 769px) {
+	.showMore {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30vw;
+		height: 6vw;
+		background: rgb(49, 209, 209);
+		border-radius: 6vh;
+		border: 2px black solid;
+		transition: 1s;
+		cursor: pointer;
+	}
+	
+	.showMore:hover {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30vw;
+		height: 6vw;
+		background: rgb(56, 161, 161);
+		border-radius: 6vh;
+		border: 2px black solid;
+		transition: 1s;
+		cursor: pointer;
+	}
 }

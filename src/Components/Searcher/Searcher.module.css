@@ -9,10 +9,12 @@
 
 .searchInput_text {
     outline: none;
-    width: 40vw;
+    width: 50vw;
     height: 2vw;
     border: none;
-    border-radius: 6px 0 0 6px;
+    border-bottom: 2px solid rgb(87, 132, 190);
+    border-top: 2px solid rgb(87, 132, 190);
+    border-left: 2px solid rgb(87, 132, 190);
     padding-left: 1vw;
     font: 400 1vw Source-Code-Pro;
 }
@@ -23,7 +25,9 @@
     width: 2vw;
     border: none;
     height: 2vw;
-    border-radius: 0 6px 6px 0;
+    border-bottom: 2px solid rgb(87, 132, 190);
+    border-top: 2px solid rgb(87, 132, 190);
+    border-right: 2px solid rgb(87, 132, 190);
 }
 
 .searchBg:hover {
@@ -31,7 +35,9 @@
     background-color: rgb(186, 186, 186);
     width: 2vw;
     height: 2vw;
-    border-radius: 0 6px 6px 0;
+    border-bottom: 2px solid rgb(87, 132, 190);
+    border-top: 2px solid rgb(87, 132, 190);
+    border-right: 2px solid rgb(87, 132, 190);
 }
 
 .search {
@@ -50,10 +56,78 @@
     position: relative;
     width: 2vw;
     height: 2vw;
-    border-radius: 0 6px 6px 0;
     opacity: 0;
     z-index: 2;
 }
 
+@media screen and (max-width: 993px) {
+    .searchInput_text {
+        outline: none;
+        width: 60vw;
+        height: 3vw;
+        border: none;
+        border-bottom: 2px solid rgb(87, 132, 190);
+        border-top: 2px solid rgb(87, 132, 190);
+        border-left: 2px solid rgb(87, 132, 190);
+        padding-left: 1vw;
+        font: 400 2vw Source-Code-Pro;
+    }
+
+    .searchBg {
+        position: relative;
+        background-color: rgb(136, 136, 136);
+        width: 3vw;
+        border: none;
+        height: 3vw;
+        border-bottom: 2px solid rgb(87, 132, 190);
+        border-top: 2px solid rgb(87, 132, 190);
+        border-right: 2px solid rgb(87, 132, 190);
+    }
+    
+    .searchBg:hover {
+        position: relative;
+        background-color: rgb(186, 186, 186);
+        width: 3vw;
+        height: 3vw;
+        border-bottom: 2px solid rgb(87, 132, 190);
+        border-top: 2px solid rgb(87, 132, 190);
+        border-right: 2px solid rgb(87, 132, 190);
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .searchInput_text {
+        outline: none;
+        width: 70vw;
+        height: 7vw;
+        border: none;
+        border-bottom: 2px solid rgb(87, 132, 190);
+        border-top: 2px solid rgb(87, 132, 190);
+        border-left: 2px solid rgb(87, 132, 190);
+        padding-left: 1vw;
+        font: 400 3vw Source-Code-Pro;
+    }
+
+    .searchBg {
+        position: relative;
+        background-color: rgb(136, 136, 136);
+        width: 7vw;
+        border: none;
+        height: 7vw;
+        border-bottom: 2px solid rgb(87, 132, 190);
+        border-top: 2px solid rgb(87, 132, 190);
+        border-right: 2px solid rgb(87, 132, 190);
+    }
+    
+    .searchBg:hover {
+        position: relative;
+        background-color: rgb(186, 186, 186);
+        width: 7vw;
+        height: 7vw;
+        border-bottom: 2px solid rgb(87, 132, 190);
+        border-top: 2px solid rgb(87, 132, 190);
+        border-right: 2px solid rgb(87, 132, 190);
+    }
+}
 
 
