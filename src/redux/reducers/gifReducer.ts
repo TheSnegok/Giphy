@@ -18,7 +18,7 @@ interface GifState {
 	found: undefined | boolean,
 	totalCount: number | undefined,
 }
-
+// type actions
 const SAVE_GIF = "SAVE_GIF",
 	SET_LANG = "SET_LANG",
 	SET_OFFSET = "SET_OFFSET",
@@ -33,7 +33,7 @@ const initialState = {
 	found: undefined,
 	totalCount: undefined,
 } as GifState;
-
+//reducer
 let gifReducer = (state = initialState, action: Action) => {
 	switch (action.type) {
 		case SAVE_GIF:
@@ -70,14 +70,14 @@ let gifReducer = (state = initialState, action: Action) => {
 			return state;
 	}
 };
-
+// actions generators
 export const saveGif = (gif: object[]) => ({ type: SAVE_GIF, gif });
 export const saveNewGif = (newGif: object[]) => ({ type: SAVE_NEW_GIF, newGif });
 export const setLanguage = (lang: string) => ({ type: SET_LANG, lang });
 export const setOffset = (offset: number) => ({ type: SET_OFFSET, offset });
 export const setFound = (found: boolean | undefined) => ({ type: SET_FOUND, found });
 export const setTotalCount = (totalCount: number) => ({ type: SET_TOTAL_COUNT, totalCount });
-
+// actions
 export const giveGif =
 	(text: string, offset = 1) =>
 	async (dispatch: any) => {
@@ -92,7 +92,8 @@ export const giveGif =
 		}
 	};
 
-export const giveMoreGif = (text: string, offset: number) => async (dispatch: any) => {
+export const giveMoreGif = (text: string, offset: number) => 
+ async (dispatch: any) => {
 	let response = await gipherAPI.getGif(text, offset);
 	if (response.meta.status === 200) {
 		dispatch(saveNewGif(response.data));
@@ -104,7 +105,6 @@ export const toggleLanguage = (lang: string) => (dispatch: any) => {
 	if (lang === "ru") {
 		dispatch(setLanguage("en"));
 		dispatch(setPlaceholder("Enter your text..."));
-		
 	} else {
 		dispatch(setLanguage("ru"));
 		dispatch(setPlaceholder("Введите свой текст..."));
