@@ -9,13 +9,11 @@ interface PropshowGif {
 
 const Showgif = ({ gifs, lang }: PropshowGif) => {
 	return (
-		<>
+		<Suspense fallback={<div className="loading">We search your GIF)</div>}>
 			{gifs.map((gif: any, key: number) => (
-				<Suspense key={key} fallback={<div className="loading">Your internet is very slow!</div>}>
-					<Image gif={gif} keyImage={key} lang={lang} />
-				</Suspense>
+					<Image gif={gif} key={key} lang={lang} />
 			))}
-		</>
+		</Suspense>
 	)
 };
 

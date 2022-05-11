@@ -26,13 +26,13 @@ const SAVE_GIF = "SAVE_GIF",
 	SET_FOUND = "SET_FOUND",
 	SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 
-const initialState = {
+const initialState: GifState = {
 	items: [],
 	language: "en",
 	offset: 0,
 	found: undefined,
 	totalCount: undefined,
-} as GifState;
+};
 //reducer
 let gifReducer = (state = initialState, action: Action) => {
 	switch (action.type) {

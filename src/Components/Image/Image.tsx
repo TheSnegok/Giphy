@@ -3,18 +3,15 @@ import s from "./Image.module.css";
 import useOnScreen from "../../hook/useOnScreen";
 
 interface PropImage {
-	gif: any,
-	lang: string,
-	keyImage: number
+	gif: any;
+	lang: string;
 };
 
-const Image = ({ gif, lang, keyImage }: PropImage) => {
+const Image = ({ gif, lang }: PropImage) => {
 	const [loader, setLoader] = useState<boolean>(false);
 	const [setRef, visible] = useOnScreen({ rootMargin: "0px" });
 
-	const loadImage = (): void => {
-		setLoader(true);
-	};
+	const loadImage = (): void => setLoader(true);
 
 	const copyLink = (text: string): void => {
 		try {
@@ -26,7 +23,7 @@ const Image = ({ gif, lang, keyImage }: PropImage) => {
 
 	if (!gif) return null;
 	return (
-		<div className={s.wrapper} key={keyImage} ref={setRef}>
+		<div className={s.wrapper} ref={setRef}>
 			<div
 				className={s.image}
 				data-title={lang === 'en' ? 'Click to copy the link to the gif' : 'Нажмите чтобы скопировать ссылку на гиф'}

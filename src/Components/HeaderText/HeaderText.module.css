@@ -10,7 +10,7 @@
 	color: rgb(79, 129, 158);
 	font: 600 10vw Source-Code-Pro;
 	cursor: default;
-	animation: flashing 3s ease-in-out infinite;
+	animation: flashing 6s linear infinite;
 }
 
 .home {
@@ -38,7 +38,6 @@
 	height: 2.5vw;
 	border: 2px solid rgb(87, 132, 190);
 	background-color: #fff;
-	animation: turnAround .3s ease-in;
 }
 
 .home svg {
@@ -72,22 +71,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	animation: turnAround .3s ease-in;
 }
 
 .toggle_language span {
 	color: rgb(87, 132, 190);
 	font: 400 1vw Source-Code-Pro;
 	text-transform: uppercase;
-}
-
-@keyframes turnAround {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }
 
 @keyframes flashing {

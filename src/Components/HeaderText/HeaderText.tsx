@@ -1,11 +1,10 @@
-import React from "react";
 import s from "./HeaderText.module.css";
 import { setFound, toggleLanguage } from "../../redux/reducers/gifReducer";
 import { connect } from "react-redux";
 
 interface PropHeaderText {
-    toggleLanguage: Function,
-    setFound: Function,
+    toggleLanguage: (lang: string) => void,
+    setFound: (c: undefined) => void,
     lang: string,
 }
 

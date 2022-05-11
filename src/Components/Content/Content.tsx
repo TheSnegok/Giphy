@@ -4,7 +4,7 @@ import ContentFound from "../ContentFound/ContentFound";
 import ContentNotFound from "../ContentNotFound/ContentNotFound";
 
 interface PropContent {
-	giveMoreGif: any,
+	giveMoreGif: Function,
 	gifs: object[],
 	text: string,
 	lang: string,
