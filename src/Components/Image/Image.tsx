@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import s from "./Image.module.css";
 import useOnScreen from "../../hook/useOnScreen";
 
@@ -8,9 +8,13 @@ interface PropImage {
 };
 
 const Image = ({ gif, lang }: PropImage) => {
-	const [loader, setLoader] = useState<boolean>(false);
-	const [setRef, visible] = useOnScreen({ rootMargin: "0px" });
 
+	const ref: any = useRef<HTMLDivElement>();
+
+	const [loader, setLoader] = useState<boolean>(false);
+	
+	const onScreen = useOnScreen<HTMLDivElement>(ref, "0px");
+	
 	const loadImage = (): void => setLoader(true);
 
 	const copyLink = (text: string): void => {
@@ -21,14 +25,13 @@ const Image = ({ gif, lang }: PropImage) => {
 		}
 	}
 
-	if (!gif) return null;
-	return (
-		<div className={s.wrapper} ref={setRef}>
+	return useMemo(() => (
+		<div className={s.wrapper} ref={ref}>
 			<div
 				className={s.image}
 				data-title={lang === 'en' ? 'Click to copy the link to the gif' : 'Нажмите чтобы скопировать ссылку на гиф'}
 			>
-				<picture className={visible ? s.showPicture : s.nonePicture}>
+				<picture className={onScreen ? s.showPicture : s.nonePicture}>
 					<source type="image/webp" />
 					<img
 						src={gif.images.preview_webp?.url || gif.images.original.url}
@@ -45,7 +48,7 @@ const Image = ({ gif, lang }: PropImage) => {
 			</div>
 			{!loader && <div className={s.loader}></div>}
 		</div>
-	);
+	), [gif, loader, onScreen, lang]);
 };
 
 export default Image;

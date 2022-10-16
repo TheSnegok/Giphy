@@ -11,7 +11,7 @@ const Showgif = ({ gifs, lang }: PropshowGif) => {
 	return (
 		<Suspense fallback={<div className="loading">We search your GIF)</div>}>
 			{gifs.map((gif: any, key: number) => (
-					<Image gif={gif} key={key} lang={lang} />
+				<Image gif={gif} key={key} lang={lang} />
 			))}
 		</Suspense>
 	)

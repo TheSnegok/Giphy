@@ -22,21 +22,21 @@ const ArrowUp = React.memo(() => {
 			<svg width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M50 90, 50 10"
-					strokeWidth="4"
+					strokeWidth="5"
 					stroke="black"
 					className="centralLine"
 				></path>
 				{/* central line*/}
 				<path
 					d="M20 40, 50 10"
-					strokeWidth="2"
+					strokeWidth="5"
 					stroke="black"
 					className="leftLine"
 				></path>
 				{/*left line*/}
 				<path
 					d="M80 40, 50 10"
-					strokeWidth="2"
+					strokeWidth="5"
 					stroke="black"
 					className="rightLine"
 				></path>

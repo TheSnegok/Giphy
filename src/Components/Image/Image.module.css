@@ -81,17 +81,21 @@
 
 @media screen and (max-width: 1250px) {
     .wrapper {
-        max-width: 60vw;
+        width: 40vw;
     }
 }
 
 @media screen and (max-width: 992px) {
 	.wrapper {
-        max-width: 90vw;
+        width: 50vw;
     }
 }
 
 @media screen and (max-width: 769px) {
+    .wrapper {
+        max-width: unset;
+        width: 70vw;
+    }
 	.showMore {
 		display: flex;
 		justify-content: center;
@@ -104,7 +108,6 @@
 		transition: 1s;
 		cursor: pointer;
 	}
-	
 	.showMore:hover {
 		display: flex;
 		justify-content: center;
@@ -117,4 +120,11 @@
 		transition: 1s;
 		cursor: pointer;
 	}
+}
+
+@media screen and (max-width: 520px) {
+    .wrapper {
+        max-width: unset;
+        width: 90vw;
+    }
 }

@@ -1,26 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, MutableRefObject } from "react";
 
 // Hook
-const useOnScreen = (option: object) => {
-	const [ref, setRef] = useState<HTMLDivElement | null>(null);										
-	// State and setter for storing whether element is visible
+const useOnScreen = <T extends Element | null>(ref: MutableRefObject<T>, rootMargin: string = "0px"): boolean => {
 	const [isIntersecting, setIntersecting] = useState<boolean>(false);
+	const stateRef = ref.current;
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				// Update our state when observer callback fires
 				setIntersecting(entry.isIntersecting);
-			}, option);
-		if (ref) {
-			observer.observe(ref);
+			}, {
+			rootMargin
+		});
+		if (stateRef) {
+			observer.observe(stateRef);
 		}
 		return () => { // eslint-disable-next-line
-			if (ref) {
-				observer.unobserve(ref);
+			if (stateRef) {
+				observer.unobserve(stateRef);
 			}
-		}; // eslint-disable-next-line
-	}, [ref, option]); // Empty array ensures that effect is only run on mount and unmount 
-	return [setRef, isIntersecting] as const;
+		};
+	}, [stateRef, rootMargin]); // Empty array ensures that effect is only run on mount and unmount 
+	return isIntersecting;
 };
 
 export default useOnScreen;
